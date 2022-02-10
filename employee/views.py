@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect  
 from employee.forms import EmployeeForm, CompanyForm
-from employee.models import Employee, Company  
-# Create your views here.  
+from employee.models import Employee, Company 
+from django.views import View 
+
+#EMPLOYEE
 def emp(request):  
     if request.method == "POST":  
         form = EmployeeForm(request.POST)  
@@ -32,7 +34,7 @@ def destroy(request, id):
     employee.delete()  
     return redirect("/show")  
 
-#EMPLOYEE
+#COMPANY
 def companyemp(request):  
     if request.method == "POST":  
         form = CompanyForm(request.POST)  
@@ -40,14 +42,14 @@ def companyemp(request):
             try:  
                 form.save()  
                 return redirect('/company/show')  
-            except:  
+            except: 
                 pass  
     else:  
         form = CompanyForm()  
-    return render(request,'companyindex.html',{'cform':form})  
+    return render(request,'companyindex.html',{'form':form})  
 def companyshow(request):  
     companies = Company.objects.all()  
-    return render(request,"companyshow.html",{'company':companies})  
+    return render(request,"companyshow.html",{'companies':companies})  
 def companyedit(request, id):  
     company = Company.objects.get(id=id)  
     return render(request,'companyedit.html', {'company':company})  
@@ -61,5 +63,5 @@ def companyupdate(request, id):
 def companydestroy(request, id):  
     company = Company.objects.get(id=id)  
     company.delete()  
-    return redirect("/companyshow")  
+    return redirect("/company/show")  
 
