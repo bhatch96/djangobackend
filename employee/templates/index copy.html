@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">  
 </head>  
 <body>  
-<form method="POST" class="post-form" action="/emp">  
+<form method="POST" class="post-form" action="/show">  
         {% csrf_token %}  
     <div class="container">  
 <br>  
@@ -23,7 +23,8 @@
     <div class="form-group row">  
       <label class="col-sm-2 col-form-label">Name:</label>  
     <div class="col-sm-4">  
-      {{ form.user }}  
+      <input type="text" name="first_name" id="id_id" required maxlength="20" value="{{ employee.user.first_name }}"/>
+      {{ employee.user.first_name }}  
     </div>    
   </div> 
     {% comment %} <div class="form-group row">  
@@ -53,7 +54,7 @@
   <div class="form-group row">  
   <label class="col-sm-2 col-form-label">Company:</label>  
   <div class="col-sm-4">  
-    {{ form.company }}  
+    {{ employee.company }}  
   </div>  
   </div>
     <div class="form-group row">  

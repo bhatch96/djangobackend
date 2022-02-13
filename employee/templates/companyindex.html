@@ -1,10 +1,13 @@
+{% extends 'landing/base.html' %}
+
+{% block content %}
 <!DOCTYPE html>  
 <html lang="en">  
 <head>  
     <meta charset="UTF-8">  
     <title>Index</title>  
     {% load static %}  
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">/>  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">  
 </head>  
 <body>  
 <form method="POST" class="post-form" action="/company/emp">  
@@ -20,13 +23,13 @@
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Company Id:</label>  
     <div class="col-sm-4">  
-      {{ cform.id }}  
+      {{ form.id }}  
     </div>  
   </div>  
   <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Company Name:</label>  
     <div class="col-sm-4">  
-      {{ cform.cname }}  
+      {{ form.cname }}  
     </div>
   <div/>  
     <div class="form-group row">  
@@ -39,3 +42,4 @@
 </form>  
 </body>  
 </html>  
+{% endblock content %}

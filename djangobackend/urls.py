@@ -6,7 +6,7 @@ urlpatterns = [
     path("", views.show),
     path('admin/', admin.site.urls),  
     path('emp', views.emp),  
-    path('show',views.show),  
+    path('show',views.show, name='path'),  
     path('employee/edit/<int:id>', views.edit),  
     path('employee/update/<int:id>', views.update),  
     path('employee/delete/<int:id>', views.destroy),  
@@ -15,4 +15,6 @@ urlpatterns = [
     path('company/edit/<int:id>', views.companyedit),  
     path('company/update/<int:id>', views.companyupdate),  
     path('company/delete/<int:id>', views.companydestroy),
+    # path('company/display/', views.displaycompany),
+    path('create/', views.signup),
 ]  

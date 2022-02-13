@@ -1,3 +1,6 @@
+{% extends 'landing/base.html' %}
+
+{% block content %}
 <!DOCTYPE html>  
 <html lang="en">  
 <head>  
@@ -11,15 +14,16 @@
     <thead class="thead-dark">  
     <tr>  
         <th>Company ID</th>  
-        <th>Company Name</th>  
+        <th>Company Name</th> 
+        <th>Actions</th>   
     </tr>  
     </thead>  
     <tbody>  
 {% for company in companies %}  
     <tr>  
         <td>{{ company.id }}</td>  
-        <td>{{ company.cname }}</td>  
- 
+        <td>{{ company.cname }}</td> 
+         
         <td>  
             <a href="/company/edit/{{ company.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
             <a href="/company/delete/{{ company.id }}">Delete</a>  
@@ -33,3 +37,4 @@
 <center><a href="/company/emp" class="btn btn-primary">Add New Record</a></center>  
 </body>  
 </html>  
+{% endblock content %}

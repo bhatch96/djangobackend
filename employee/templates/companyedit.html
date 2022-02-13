@@ -1,3 +1,6 @@
+{% extends 'landing/base.html' %}
+
+{% block content %}
 <!DOCTYPE html>  
 <html lang="en">  
 <head>  
@@ -7,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">/>  
 </head>  
 <body>  
-<form method="POST" class="post-form" action="/companyedit/{{company.id}}">  
+<form method="POST" class="post-form" action="/company/edit/{{company.id}}">  
         {% csrf_token %}  
     <div class="container">  
 <br>  
@@ -20,13 +23,14 @@
     <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Company Id:</label>  
     <div class="col-sm-4">  
-        {{company.id}}  
+      {% comment %} <input type="text" name="id" id="id" maxlength="100" value="{{ company.id }}" />   {% endcomment %}
+      {{ company.id }}
     </div>  
   </div>  
   <div class="form-group row">  
     <label class="col-sm-2 col-form-label">Company Name:</label>  
     <div class="col-sm-4">  
-        <input type="text" name="cname" id="id_cname" required maxlength="100" value="{{ company.cname }}" />  
+        <input type="text" name="cname" id="id" required maxlength="100" value="{{ company.cname }}" />  
     </div>  
     <div class="form-group row">  
     <label class="col-sm-1 col-form-label"></label>  
@@ -38,3 +42,4 @@
 </form>  
 </body>  
 </html>  
+{% endblock content %}
